@@ -1,28 +1,58 @@
 Answer each question in a written format
 
 1. What does semantic HTML mean?
+    Writing HTML in a more readable manner. When the written code matches its structural use. 
+    Using footer tags for the footer div. Header tag for the header. Section tabs to group things logically.
 
 2. What is the box model?
+    A way of modeling elements in css where boxes wrap every HTML element. Consisting of Margins, Border, Padding and Content.
+    
+    margin| border | padding | CONTENT | padding | border | margin  <---- but also in vertical
 
 3. What is the difference between IDs and Classes?
+    IDs are analogous to one-use classes. #id
+    Classes can be used multiple times. .class
 
 4. What does the z-index do?
+    z-index places the id/class/tag on a different stack level or layer of the HTML. with lowest being the bottom layer
 
 5. Summarize what the keyword 'this' is used for?
+    "this" is used in reference to an object. 'this' changes based on the context and whether/how it is bound
 
 6. What is a callback?
+    A callback is a function passed into another function as a parameter, which is later invoked by that 2nd function.
 
 7. What is a closure?
+    A method of securing variables using scope in a function.
 
 8. How does prototype work?
+    A prototype is a method or property on an object's parent that all instances inherit.
 
 9. What is MVC?
+    Model, View, Controller. A view is what the user sees - visual representation of the model. 
+    A model is the data of a site. 
+    The controller is what the user uses to interact with the model.
 
 10. What is the component lifecycle?
+        The stages of a component's life from mounting to unmounting. 
+        Lifecycle methods allow us to get extremely specific about what 
+        functions we want run at what point in time.
+        In React:
+        componentWillMount
+        componentDidMount
+        componentWillReceiveProps
+        shouldComponentUpdate
+        componentWillUpdate
+        componentDidUpdate
+        componetWillUnmount
 
 11. What is REST?
+        A way of structuring URLs and sharing data amongst servers.
 
 12. Name three ways of getting data from the URL using express
+        1. req.param - someplace.com/:param
+        2. req.query - someplace.com/:param?querypropname=querypropvalue
+        3. req.path - someplace.com/hardcodedroute
 
 create table users (
 id serial,
@@ -34,8 +64,17 @@ email varchar(255)
 
 -Get all users:
 
+    SELECT * FROM users
+
 -Create a new user with the name of 'your name' and an email of 'fake@fake.com':
+
+    INSERT INTO users (name, email) VALUES ('your name', 'fake@fake.com')
 
 -Update the newly created user's name to 'Bobby Boy':
 
+    UPDATE users SET name = 'Bobby Boy' WHERE id = (SELECT MAX(id) FROM users)
+
 -Delete the newly updated user:
+
+    DELETE FROM users
+    WHERE id = (SELECT MAX(id) FROM users)
